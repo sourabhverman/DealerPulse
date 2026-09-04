@@ -81,7 +81,18 @@ export default function CEOBriefFloat() {
 
   return (
     <>
-      {/* Floating button — sits above Ask AI */}
+      {/* GitHub floating button — sits above CEO Brief */}
+      <a
+        href="https://github.com/sourabhverman/DealerPulse"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-[8rem] right-5 z-40 flex items-center gap-2 px-4 py-2.5 bg-zinc-900 text-white rounded-full shadow-lg hover:bg-zinc-800 transition-all text-xs font-medium"
+      >
+        <Github size={13} />
+        GitHub
+      </a>
+
+      {/* CEO Brief floating button — sits above Ask AI */}
       <button
         onClick={() => setOpen((p) => !p)}
         className="fixed bottom-[4.5rem] right-5 z-40 flex items-center gap-2 px-4 py-2.5 bg-zinc-900 text-white rounded-full shadow-lg hover:bg-zinc-800 transition-all text-xs font-medium"
@@ -138,20 +149,9 @@ export default function CEOBriefFloat() {
 
           {/* Footer */}
           {data && (
-            <div className="px-4 py-2.5 border-t border-zinc-50 bg-zinc-50/60 flex items-center justify-between gap-1.5">
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
-                <p className="text-[10px] text-zinc-400">Live from 510 leads · 5 branches · 7 months</p>
-              </div>
-              <a
-                href="https://github.com/sourabhverman/DealerPulse"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-2.5 py-1 bg-zinc-900 text-white rounded-full text-[10px] font-medium hover:bg-zinc-700 transition-colors"
-              >
-                <Github size={11} />
-                Source
-              </a>
+            <div className="px-4 py-2.5 border-t border-zinc-50 bg-zinc-50/60 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+              <p className="text-[10px] text-zinc-400">Live from 510 leads · 5 branches · 7 months</p>
             </div>
           )}
         </div>

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { cn, formatCurrency } from "@/lib/utils";
 import type { KPISummary, BranchStat, AlertItem } from "@/lib/types";
-import { FileText, X, ChevronDown } from "lucide-react";
+import { FileText, X, Github } from "lucide-react";
 
 // ── narrative builder ─────────────────────────────────────────────────────────
 function buildBrief(kpi: KPISummary, branches: BranchStat[], alerts: AlertItem[]): string[] {
@@ -61,6 +61,12 @@ function buildBrief(kpi: KPISummary, branches: BranchStat[], alerts: AlertItem[]
 export default function CEOBriefFloat() {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState<{ kpi: KPISummary; branches: BranchStat[]; alerts: AlertItem[] } | null>(null);
+
+  // Auto-open after 3 seconds on first visit
+  useEffect(() => {
+    const timer = setTimeout(() => setOpen(true), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (open && !data) {
@@ -132,9 +138,20 @@ export default function CEOBriefFloat() {
 
           {/* Footer */}
           {data && (
-            <div className="px-4 py-2.5 border-t border-zinc-50 bg-zinc-50/60 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
-              <p className="text-[10px] text-zinc-400">Live from 510 leads · 5 branches · 7 months</p>
+            <div className="px-4 py-2.5 border-t border-zinc-50 bg-zinc-50/60 flex items-center justify-between gap-1.5">
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                <p className="text-[10px] text-zinc-400">Live from 510 leads · 5 branches · 7 months</p>
+              </div>
+              <a
+                href="https://github.com/sourabhverman/DealerPulse"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-[10px] text-zinc-400 hover:text-zinc-700 transition-colors"
+              >
+                <Github size={11} />
+                Source
+              </a>
             </div>
           )}
         </div>

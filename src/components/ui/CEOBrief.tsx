@@ -147,7 +147,7 @@ export default function CEOBriefFloat() {
                 href="https://github.com/sourabhverman/DealerPulse"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-[10px] text-zinc-400 hover:text-zinc-700 transition-colors"
+                className="flex items-center gap-1.5 px-2.5 py-1 bg-zinc-900 text-white rounded-full text-[10px] font-medium hover:bg-zinc-700 transition-colors"
               >
                 <Github size={11} />
                 Source
